@@ -7,7 +7,7 @@ image: getting_started_with_rails_8
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 13.61.10.189 # this is from the "Auto-assigned IP address" of my AWS EC2 instance
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -17,9 +17,9 @@ servers:
 # Remove this section when using multiple web servers and ensure you terminate SSL at your load balancer.
 #
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
-# proxy:
-#   ssl: true
-#   host: app.example.com
+proxy:
+  ssl: true
+  host: here-you-need-your-bought-custom-domain-so-kamal-can-get-let#s-encrypt-certs # this is from 'Public DNS' of my AWS EC2 instance
 
 # Where you keep your container images.
 registry:
@@ -27,7 +27,7 @@ registry:
   server: localhost:5555
 
   # Needed for authenticated registries.
-  # username: your-user
+  username: isabella427 #my DockerHub username
 
   # Always use an access token rather than real password when possible.
   # password:
@@ -89,8 +89,11 @@ builder:
   #   - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
-# ssh:
-#   user: app
+ssh:
+  user: ubuntu # on AWS EC2 you cannot ssh as 'root' because it is stricter about security
+  keys: 
+    - /home/bella--1/kamal-rail8-test.pem # this is the file with the key of my AWS EC2 instance which I had to create and download during the creation of the EC2 instance
+    # and I had to change the reading permissions of the file to only the owner can read
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
