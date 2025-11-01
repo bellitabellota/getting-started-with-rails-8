@@ -13,7 +13,7 @@ body {
   padding: 1rem;
 }
 
-nav {
+nav.navbar {
   justify-content: flex-end;
   display: flex;
   font-size: 0.875em;
@@ -23,7 +23,7 @@ nav {
   padding: 1rem;
 }
 
-nav a {
+nav.navbar a {
   display: inline-block;
 }
 
