@@ -27,6 +27,19 @@ nav.navbar a {
   display: inline-block;
 }
 
+section.settings {
+  display: flex;
+  gap: 1rem;
+}
+
+section.settings nav {
+  width: 200px;
+}
+
+section.settings nav a {
+  display: block;
+}
+
 main {
   max-width: 1024px;
   margin: 0 auto;
