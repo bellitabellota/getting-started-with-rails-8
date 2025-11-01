@@ -24,7 +24,7 @@
   </head>
 
   <body>
-      <nav>
+      <nav class="navbar">
       <%= link_to "Home", root_path %>
       <% if authenticated? %>
         <%= link_to "Settings", settings_root_path %>
@@ -34,6 +34,6 @@
         <%= link_to "Login", new_session_path %>
       <% end %>
     </nav>
-    <main><%= yield %></main>
+    <main><%= content_for?(:content) ? yield(:content) : yield %></main>
   </body>
 </html>
