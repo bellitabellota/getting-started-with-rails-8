@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   end
 
   namespace :settings do
+    resource :email, only: [ :show, :update ]
     resource :password, only: [ :show, :update ]
-      resource :profile, only: [ :show, :update ]
-      resource :user, only: [ :show, :destroy ]
+    resource :profile, only: [ :show, :update ]
+    resource :user, only: [ :show, :destroy ]
 
-      root to: redirect("/settings/profile")
+    root to: redirect("/settings/profile")
   end
 
   resource :unsubscribe, only: [ :show ]
