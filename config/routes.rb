@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     root to: redirect("/settings/profile")
   end
 
+  namespace :email do
+    resources :confirmations, param: :token, only: [ :show ]
+  end
+
+
   resource :unsubscribe, only: [ :show ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
