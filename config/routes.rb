@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :confirmations, param: :token, only: [ :show ]
   end
 
+  # Admins Only
+  namespace :store do
+    resources :users
+  end
+
+
 
   resource :unsubscribe, only: [ :show ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
